@@ -10,7 +10,7 @@ router.get('/', async function(req, res){
   res.render('index', {data:[]})
 })
 
-router.update("/api/burger/:id", async function(req, res) {
+router.put("/api/burger/:id", async function(req, res) {
   
     let columnName = "id";
     let columnValue = req.params.id;
@@ -40,3 +40,6 @@ router.delete("/api/burger/:id", async function(req, res) {
   
     res.status(200).end();
   });
+
+// Export routes for server.js to use.
+module.exports = router;

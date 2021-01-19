@@ -2,22 +2,22 @@
 var orm = require("../config/orm.js");
 
 var burger = {
-    selectAll: async () => {
+    selectAll: async function (table) {
       let data = await orm.selectAll("burgers")
       return data
     },
  
     // The variables cols and vals are arrays.
-    insertOne: function(cols, vals, cb) {
-      // orm.create("burgers", cols, vals, function(res) {
-      //   cb(res);
-      // });
+    insertOne: async function(columnName, columnValue, cb) {
+      const results = await orm.insertOne("burgers", columnName, columnValue);
+    
+      return results;
     },
     
-    updateOne: function(objColVals, condition, cb) {
-      // orm.update("burgers", objColVals, condition, function(res) {
-      //   cb(res);
-      // });
+    updateOne: async function(columnName, columnValue, cb) {
+      const results = await orm.updateOne("burgers", columnName, columnValue);
+    
+      return results;
     },
 
     deleteOne: async function (columnName, columnValue, cb) {
