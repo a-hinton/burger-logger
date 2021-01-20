@@ -1,20 +1,20 @@
 <h1>Eat Da Burger!</h1>
 
 <h2>Add a Custom Burger</h2>
-<form class="create-form">
+<form class="form">
 
   <div class="form-group">
-    <label for="ca">Burger Name:</label>
-    <input type="text" id="ca" name="name">
+    <label for="bu">Burger Name:</label>
+    <input type="text" id="bu" name="name">
   </div>
 
   <div class="form-group">
-    <label for="eat">Eaten?</label><br>
-    <input type="radio" name="eaten" value="1" checked> This burger was eaten<br>
-    <input type="radio" name="eaten" value="0"> Not yet eaten
+    <label for="eat">devoured?</label><br>
+    <input type="radio" name="devoured" value="1" checked> This burger was devoured<br>
+    <input type="radio" name="devoured" value="0"> Not yet devoured
   </div>
 
-  <button type="submit">Add Burger</button>
+  <button type="submit" id="submit">Add Burger</button>
 </form>
 
 
@@ -22,18 +22,19 @@
 
 <ul>
   {{#each burgers}}
-    {{#unless eaten}}
-      {{> burgers/burger-block eaten=true}}
+    {{#unless devoured}}
+      {{burger_name}}
+      <button class="burger" data-id="{{id}}">Eat Me!</button>
     {{/unless}}
   {{/each}}
 </ul>
 
-<h2>Burgers which have been eaten.</h2>
+<h2>Burgers which have been devoured.</h2>
 
 <ul>
   {{#each burgers}}
-    {{#if eaten}}
-      {{> burgers/burger-block eaten=false}}
+    {{#if devoured}}
+      {{burger_name}}
     {{/if}}
   {{/each}}
 </ul>

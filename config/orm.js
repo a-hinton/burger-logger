@@ -49,6 +49,7 @@ var orm = {
 
       try {
         const [rows, fields] = await connection.promise().query(SQL_STATEMENT);
+        console.log(rows)
         return rows;
     } catch (error) {
         console.log(error);
@@ -56,25 +57,25 @@ var orm = {
     },
 
     insertOne: async function(tableName, columnName, columnValue) {
-      let SQL_STATEMENT = `INSERT INTO ${tableName} (${columNames.toString()})
-                          VALUES (${printQuestionMarks(vals.length)})`;                          
-  
+      let SQL_STATEMENT = `INSERT INTO ${tableName} (${columnName.toString()}) 
+                          VALUES (${printQuestionMarks(columnValue.length)});`;                          
+      console.log(SQL_STATEMENT)
       try {
-          const [rows, fields] = await connection.promise().query(SQL_STATEMENT, [tableName, columnName, columnValue]);
+          const [rows, fields] = await connection.promise().query(SQL_STATEMENT, columnValue);
           return rows;
       } catch (error) {
           console.log(error);
       }
     },
     
-    // An example of objColVals would be {name: panther, sleepy: true}
-    updateOne: async function(tableName, columnName, condition) {
+    // An example of objColVals would be {burger_name: sloppy joe, devoured: true}
+    updateOne: async function(tableName, objColVals, condition) {
         let SQL_STATEMENT = `UPDATE ${tableName}
                             SET ${objToSql(objColVals)}
                             WHERE ${condition}`;                           
-    
+        console.log(SQL_STATEMENT)
         try {
-            const [rows, fields] = await connection.promise().query(SQL_STATEMENT, [tableName, columnName, columnValue]);
+            const [rows, fields] = await connection.promise().query(SQL_STATEMENT, [tableName, objColVals, condition]);
             return rows;
         } catch (error) {
             console.log(error);

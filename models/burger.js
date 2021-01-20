@@ -8,19 +8,19 @@ var burger = {
     },
  
     // The variables cols and vals are arrays.
-    insertOne: async function(columnName, columnValue, cb) {
+    insertOne: async function(columnName, columnValue) {
       const results = await orm.insertOne("burgers", columnName, columnValue);
     
       return results;
     },
     
-    updateOne: async function(columnName, columnValue, cb) {
+    updateOne: async function(columnName, columnValue) {
       const results = await orm.updateOne("burgers", columnName, columnValue);
     
       return results;
     },
 
-    deleteOne: async function (columnName, columnValue, cb) {
+    deleteOne: async function (columnName, columnValue) {
 
         const results = await orm.deleteOne("burgers", columnName, columnValue);
     
