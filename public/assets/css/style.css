@@ -2,9 +2,27 @@ h1 {
   justify-content: center;
 }
 
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#add-burger {
+  display: flex;
+  margin: 0 auto;
+  max-width: 30%;
+}
+
 #burger-menus {
   display: flex;
   justify-content: space-between;
+}
+
+ul {
+  display: flex;
+  flex-direction:column;
+  justify-content: center;
 }
 
 li {
@@ -25,4 +43,11 @@ li {
 
 .form-group {
   margin-bottom: 5px;
+}
+
+button {
+  background: rgb(39, 125, 255);
+  color: white;
+  font-weight: bold;
+  border-radius:5px;
 }
