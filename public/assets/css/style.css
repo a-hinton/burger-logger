@@ -1,3 +1,12 @@
+h1 {
+  justify-content: center;
+}
+
+#burger-menus {
+  display: flex;
+  justify-content: space-between;
+}
+
 li {
   padding: 5px;
   margin: 5px;
@@ -8,7 +17,7 @@ li {
   font-weight: bold;
 }
 
-.create-update-form {
+.form {
   padding: 5px;
   margin: 5px;
   background: aqua;
